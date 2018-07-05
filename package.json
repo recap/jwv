@@ -1,0 +1,28 @@
+{
+  "name": "jwv",
+  "version": "0.0.1",
+  "description": "",
+  "main": "jwv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Reggie Cushing",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/recap/jwv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/recap/jwv/issues"
+  },
+  "homepage": "https://github.com/recap/jwv#readme",
+  "dependencies": {
+    "escodegen": "^1.10.0",
+    "esprima": "^4.0.0",
+    "express": "^4.16.3",
+    "fibers": "^2.0.2",
+    "randomstring": "^1.1.5",
+    "synchronize": "^2.0.0",
+    "vm2": "^3.6.1"
+  }
+}
