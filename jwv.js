@@ -1,13 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const lambda = require('./src/lambda.js');
+const beautify = require('js-beautify').js
 
 const config = require('./config.json');
 const app = express();
-const api = '';
 const objDB = {};
 const cbDB = {};
 const funcDB = {};
+const serveFolder = [
+	__dirname, 
+	'/', 
+	'public'
+].join('');
+
+app.use(express.static(serveFolder));
 
 app.use(bodyParser.json());
 
@@ -31,7 +38,16 @@ app.put('/f/:function', (req, res) => {
 	const functionBody = req.body.function;
 	funcDB[functionName] = functionBody;
 	res.status(200).send("OK");
+});
 
+app.get('/l/:function', (req, res) => {
+	const functionName = req.params.function;
+	const functionBody = funcDB[functionName];
+	if (functionBody) {
+		res.status(200).send(beautify(functionBody));
+	} else {
+		res.status(404).send("");
+	}
 });
 
 app.get('/f/:function', (req, res) => {
